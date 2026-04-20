@@ -1,10 +1,10 @@
 {
-  "name": "trello-mcp",
+  "name": "trello-mcp-plus",
   "version": "1.0.0",
   "description": "MCP server for Trello — board, card, member, label, description, and due-date operations from Claude or any MCP client.",
   "main": "dist/index.js",
   "bin": {
-    "trello-mcp": "dist/index.js"
+    "trello-mcp-plus": "dist/index.js"
   },
   "files": [
     "dist",
@@ -13,18 +13,19 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sewon-supernova/trello-mcp.git"
+    "url": "git+https://github.com/sewon-supernova/trello-mcp-plus.git"
   },
-  "homepage": "https://github.com/sewon-supernova/trello-mcp#readme",
+  "homepage": "https://github.com/sewon-supernova/trello-mcp-plus#readme",
   "bugs": {
-    "url": "https://github.com/sewon-supernova/trello-mcp/issues"
+    "url": "https://github.com/sewon-supernova/trello-mcp-plus/issues"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && chmod +x dist/index.js",
+    "prepublishOnly": "npm run build",
     "start": "node dist/index.js",
     "dev": "tsx ./src/index.ts",
-    "docker:build": "docker build -t trello-mcp .",
-    "docker:run": "docker run --rm -i --env-file .env trello-mcp"
+    "docker:build": "docker build -t trello-mcp-plus .",
+    "docker:run": "docker run --rm -i --env-file .env trello-mcp-plus"
   },
   "keywords": [
     "mcp",
